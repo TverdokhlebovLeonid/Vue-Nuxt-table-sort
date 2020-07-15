@@ -69,6 +69,6 @@ export const actions = {
     }
 }
 
- const rejectByChance = () => {return Math.random() >= 0.35}
+ const rejectByChance = () => {return Math.random() >= 0.01}
  const delay = parseInt(Math.random() * 1000)
  const wait = () => {return new Promise(resolve => setTimeout(resolve, delay))}
