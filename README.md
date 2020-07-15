@@ -1,3 +1,2 @@
-# Vue-Nuxt-table-sort
-Vue-Nuxt-table-sort
-Nuxt.js Vue.js
+# Nuxt.js Vue.js
+
