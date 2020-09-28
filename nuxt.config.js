@@ -1,6 +1,7 @@
 
 module.exports = {
-  mode: 'universal',
+  ssr: true,
+  telemetry: false,
 
   head: {
      htmlAttrs: {
