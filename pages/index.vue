@@ -54,7 +54,8 @@
                      <span>Выбрать всё.</span>
                    </label>
                    <hr>
-                <div v-for="th of productThs"
+                <div v-for="(th, i) in productThs"
+                     :key="i + 'vc'"
                      class="select_div_chec_lab" 
                      >
                     <label class="select_checkbox">
@@ -86,6 +87,7 @@
           <tr>
             <th></th>
             <th  v-for="(th, index) of select"
+                  :key="th + 'vcc'"
                   > 
                   <div class="select_hr_st">
                     {{ selectThs[th] }}
