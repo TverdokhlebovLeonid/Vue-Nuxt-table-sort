@@ -1,8 +1,8 @@
 {
-  "name": "Vue-Nuxt-Table",
-  "version": "1.0.0",
+  "name": "vue-nuxt-table",
+  "version": "2.0.0",
   "description": "Vue-Nuxt-Table",
-  "author": "Tverdokhlebov Leonid <l.deszcom@gmail.com>",
+  "author": "Tverdokhlebov Leonid",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",

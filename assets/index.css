@@ -1,0 +1,244 @@
+h1 {
+  text-align: center;
+  padding: 20px;
+  background-color: #f5fbf5;
+  font-size: 24px;
+  color: #0808ae;
+  letter-spacing: 0.2rem;
+}
+h2 {
+  font-size: 12px;
+  margin-right: 5px;
+  margin-top: 17px;
+}
+h3 {
+  color: #10077b;
+  font-size: 14px;
+  text-align: center;
+}
+hr {
+  border: none;
+  background-color: #04ca48;
+  color: #04ca48;
+  height: 1px;
+}
+b {
+  font-size: 25px;
+  font-weight: bold;
+}
+.btn[disabled] {
+  background-color: #f4f9fb;
+  border-color: #888b8c;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.65;
+  color: #10077b;
+}
+.select_checkbox > input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.select_checkbox > span {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+}
+.select_checkbox > span::before {
+  content: "";
+  display: inline-block;
+  width: 1.3em;
+  height: 1.3em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 2px solid #adb5bd;
+  border-radius: 0.25em;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+  cursor: pointer;
+}
+.select_checkbox > input:checked + span::before {
+  border-color: #04ca48;
+  background-color: #04ca48;
+  transition: 0.7s;
+  background-image: url(../static/images/icon/checkbox.png);
+}
+.select_checkbox > input:not(:disabled):not(:checked) + span:hover::before {
+  border-color: #04ca48;
+  transition: 0.7s;
+}
+select {
+  margin-top: 3px;
+  padding: 1px;
+  padding-right: 25px;
+  font: inherit;
+  font-size: 13px;
+  border: 1px solid #04ca48;
+  border-right: none;
+  border-radius: 2px;
+  color: #10077b;
+  appearance: none;
+  background: url(../static/images/icon/arrow_down.png) no-repeat right;
+}
+.btn {
+  display: inline-block;
+  font-weight: normal;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  border-radius: 0.25rem;
+  transition: 0.7s;
+}
+.btn-sm {
+  display: inline-block;
+  width: 10rem;
+  margin: 1rem;
+}
+.btn-sm:visited {
+  color: #111;
+}
+.btn-sm:disabled,
+.btn-sm:disabled:hover {
+  color: rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  cursor: initial;
+}
+.btn-sm:hover,
+.btn-sm:focus {
+  border: 2px solid #04ca48;
+  color: #04ca48;
+}
+.btn-sm-page {
+  display: inline-block;
+  margin: 0.1rem;
+}
+.btn-sm-page:visited {
+  color: #111;
+}
+.btn-sm-page:disabled,
+.btn-sm-page:disabled:hover {
+  color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: initial;
+}
+.btn-sm-page:hover,
+.btn-sm-page:focus {
+  border: 1px solid #04ca48;
+  color: #04ca48;
+}
+.btn_cancel {
+  background-color: #fffbfb;
+  border-color: #a8a5a5;
+  color: #10077b;
+}
+.btn_cancel:hover {
+  background-color: #e6e6e6;
+}
+.btn_success {
+  background-color: #04ca48;
+  border-color: #04ca48;
+  color: white;
+  opacity: 1;
+}
+.btn_success:hover {
+  background-color: #02a63b;
+}
+.page_text_bold {
+  font-size: 18px;
+  font-weight: bold;
+}
+.select_page_text {
+  font-size: 14px;
+  font-weight: 300;
+}
+.page_text {
+  font-size: 13px;
+  font-weight: 300;
+}
+.message_slide-enter-active {
+  animation: message_slide-in 0.6s;
+}
+
+.message_slide-leave-active {
+  animation: message_slide-out 0.5s;
+}
+@keyframes message_slide-in {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes message_slide-out {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+.corob_img_block-enter-active,
+.corob_img_block-leave-active {
+  overflow: hidden;
+  transition: all 0.7s;
+  max-height: 250px;
+}
+
+.corob_img_block-enter,
+.corob_img_block-leave-to {
+  max-height: 0;
+}
+
+.modal_block-button {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.string_img {
+  width: 24px;
+  height: 24px;
+  margin-left: 5px;
+}
+.select-txt {
+  width: 100%;
+  font-size: 14px;
+}
+.transition_img_icon-enter-active {
+  animation: transition_img_icon-In 0.4s;
+}
+.transition_img_icon-leave-active {
+  animation: transition_img_icon-Out 0.4s;
+}
+@keyframes transition_img_icon-In {
+  from {
+    transform: rotateX(90deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+@keyframes transition_img_icon-Out {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(90deg);
+  }
+}
+.mr10 {
+  margin-right: 10px;
+}

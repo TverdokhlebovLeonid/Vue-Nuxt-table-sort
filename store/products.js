@@ -1,74 +1,74 @@
 export const state = () => ({
   products: [],
-  error: null,
-  errorDiv: false,
-  messageDiv: false,
-})
+  wrongMessage: "",
+  isModalMessage: false,
+});
 export const getters = {
-  products: state => state.products,
-  error: state => state.error,
-  errorDiv: state => state.errorDiv,
-  messageDiv: state => state.messageDiv
-}
+  products: (state) => state.products,
+  wrongMessage: (state) => state.wrongMessage,
+  isModalMessage: (state) => state.isModalMessage,
+};
 export const mutations = {
   setProducts(state, products) {
-    state.products = products
+    state.products = products;
   },
   deleteProducts(state, payload) {
-    state.products.splice(state.products.indexOf(payload), 1)
+    state.products.splice(state.products.indexOf(payload), 1);
   },
   deleteProductsGroup(state, payload) {
-    state.products = state.products.filter(function(prod) {
-    return !payload.includes(prod) 
-    })
+    state.products = state.products.filter(function (prod) {
+      return !payload.includes(prod);
+    });
   },
-  setError(state, error) {
-    state.error = error
-    state.errorDiv = true
+  setWrongMessage(state, message = "") {
+    state.wrongMessage = message;
+    state.isModalMessage = true;
   },
-  clearError(state) {
-    state.error = null
-    state.errorDiv = false
+  clearWrongMessage(state) {
+    state.wrongMessage = "";
+    state.isModalMessage = false;
   },
-  setMessage(state) {
-    state.messageDiv = true
-  },
-  clearMessage(state) {
-    state.messageDiv = false
-  }
-}
+};
 export const actions = {
-  async getProducts({commit}) {
+  async getFetchProducts({ commit }) {
     try {
-       await wait()
-       if (rejectByChance()) {
-        const products = await this.$axios.$get('/products.json') 
-        commit('setProducts', products)
-       }
-       else { throw new Error("Server error") }
-   } catch (e) {
-      commit('setError', e.message)
+      await wait();
+      if (rejectByChance()) {
+        const products = await this.$axios.$get("/products.json");
+        commit("setProducts", products);
+      } else {
+        throw new Error("Server error");
+      }
+    } catch (e) {
+      commit("setWrongMessage", e.message);
     }
   },
-  async deleteProducts({commit}, payload) {
+  async deleteFetchProducts({ commit }, payload) {
     try {
-       await wait()
-        if (rejectByChance()) {
-          if (toString.call(payload) === '[object Array]'){
-               commit('deleteProductsGroup', payload)
-               commit('setMessage')
-          }
-          else { commit('deleteProducts', payload)
-                 commit('setMessage')
-           }
+      await wait();
+      if (rejectByChance()) {
+        if (toString.call(payload) === "[object Array]") {
+          commit("deleteProductsGroup", payload);
+          commit("setWrongMessage");
+        } else {
+          commit("deleteProducts", payload);
+          commit("setWrongMessage");
         }
-        else { throw new Error("Server error") }
-     } catch (e) {
-       commit('setError', e.message)
+      } else {
+        throw new Error("Server error");
       }
+    } catch (e) {
+      commit("setWrongMessage", e.message);
     }
-}
-
- const rejectByChance = () => {return Math.random() >= 0.01}
- const delay = parseInt(Math.random() * 1000)
- const wait = () => {return new Promise(resolve => setTimeout(resolve, delay))}
+  },
+};
+//The probability of getting a server error.
+//probability = 0.9 max error, probability = 0.01 min error
+const probability = 0.01;
+const rejectByChance = () => {
+  return Math.random() >= probability;
+};
+const delay = parseInt(Math.random() * 1000);
+const wait = () => {
+  return new Promise((resolve) => setTimeout(resolve, delay));
+};
